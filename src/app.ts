@@ -11,6 +11,8 @@ let people: People[] = [];
 let grade: Grade[] = [];
 let task: Task[] = [];
 
+// People --------------------------
+
 app.get('/name', (req, res) => {
     return res.json(people);
   });
@@ -48,7 +50,8 @@ app.get('/name', (req, res) => {
     })
   });
   
-  // Grades -------------------------
+  // Grade ---------------------------
+
   app.get('/grades', (req, res) => {
     return res.json(grade);
   });
@@ -86,7 +89,9 @@ app.get('/name', (req, res) => {
     })
   });
   
-  // Task Tracker -------------------------
+
+
+// Task-----------------------------------------
   app.get('/tasks', (req, res) => {
     return res.json(task);
   });
@@ -124,8 +129,7 @@ app.get('/name', (req, res) => {
     })
   });
   
-  // Change the task status as done or not done
-  // you must determine tha id of the task then set its status param to be true if it is done or false otherwise
+  
   app.put('/tasks/:id/:status', (req, res) => {
     const tID = req.params.id;
     const status = req.params.status;
@@ -143,8 +147,7 @@ app.get('/name', (req, res) => {
     });
   });
   
-  // Search for a task by given title
-  // if titlr more than one word, sprate it with -
+  // Search ------------------------------------------
   app.get('/tasks/:title', (req, res) => {
     let str = req.params.title;
     let title = str.replace("-"," ");
